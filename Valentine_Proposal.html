@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Will You Be My Valentine? 💖</title>
+  <style>
+    * { box-sizing: border-box; font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    body {
+      margin: 0; min-height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex; align-items: center; justify-content: center;
+      color: #5a1a2f; overflow: hidden;
+    }
+    .card {
+      background: rgba(255,255,255,0.96);
+      max-width: 420px; width: 90%;
+      border-radius: 26px; padding: 28px 22px 32px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.18);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    h1 { margin-top: 0; font-size: 1.9rem; }
+    p { font-size: 1rem; line-height: 1.55; }
+    .buttons { margin-top: 26px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    button {
+      border: none; border-radius: 999px; padding: 14px 26px; font-size: 1rem;
+      cursor: pointer; transition: all 0.2s ease;
+    }
+    button:active { transform: scale(0.95); }
+    .yes {
+      background: linear-gradient(135deg, #ff4d6d, #ff8fab);
+      color: #fff; box-shadow: 0 10px 22px rgba(255,77,109,0.45);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255,77,109,0.6); }
+      70% { box-shadow: 0 0 0 18px rgba(255,77,109,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,77,109,0); }
+    }
+    .no {
+      background: #ffe5ec; color: #a8325a;
+      box-shadow: 0 8px 18px rgba(168,50,90,0.25);
+      position: relative;
+    }
+    .hidden { display: none; }
+    .celebrate { animation: pop 0.6s ease-out forwards; }
+    @keyframes pop { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .heart {
+      position: absolute; font-size: 1.8rem; animation: floatUp 3.2s linear infinite; opacity: 0.85;
+    }
+    .petal {
+      position: absolute; font-size: 1.6rem; animation: floatUp 3.6s linear infinite; opacity: 0.9;
+    }
+    @keyframes floatUp { from { transform: translateY(0) scale(1); opacity: 0.9; } to { transform: translateY(-140px) scale(1.4); opacity: 0; } }
+    .photos { margin-top: 18px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .photo {
+      background: #ffd6e0; border-radius: 18px; aspect-ratio: 1/1;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; color: #7a2943; overflow: hidden;
+    }
+    .photo img { width: 100%; height: 100%; object-fit: cover; }
+    textarea {
+      width: 100%; min-height: 130px; margin-top: 16px;
+      border-radius: 16px; border: 1px solid #f2a1b3;
+      padding: 14px; font-size: 0.95rem; resize: vertical;
+    }
+    .countdown { margin-top: 14px; font-weight: 600; color: #b8325f; }
+    .footer-note { margin-top: 12px; font-size: 0.8rem; opacity: 0.7; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="content" id="mainContent">
+      <h1>Kripa, will you be my Valentine? 💖</h1>
+      <p>Hey Kripa 💕 You make my days brighter, my smiles wider, and my heart happier… so I have one very important question for you 🥰</p>
+
+      <div class="buttons">
+        <button class="yes" id="yesBtn">Yes 💘</button>
+        <button class="no" id="noBtn">No 🙈</button>
+      </div>
+      <div class="countdown" id="countdown"></div>
+
+      <div class="photos">
+  <div class="photo"><img src="photo1.jpeg" alt="Us"></div>
+  <div class="photo"><img src="photo2.jpeg" alt="Us"></div>
+  <div class="photo"><img src="photo3.jpeg" alt="Us"></div>
+  <div class="photo"><img src="photo4.jpeg" alt="Us"></div>
+  <div class="photo"><img src="photo5.jpeg" alt="Us"></div>
+  <div class="photo"><img src="photo6.jpeg" alt="Us"></div>
+  <div class="photo"><img src="photo7.jpeg" alt="Us"></div>
+</div>
+        <div class="photo">Your Photo 2</div>
+        <div class="photo">Your Photo 3</div>
+        <div class="photo">Your Photo 4</div>
+      </div>
+
+      <div class="footer-note">(Tap the photos later to replace them with your memories 💞)</div>
+    </div>
+
+    <div class="content hidden" id="yesContent">
+      <h1 class="celebrate">YAY!!! 🎉💖</h1>
+      <p>I knew it, Kripa 😍 You just made me the happiest person ever.</p>
+      <p>Now let me tell you something from my heart:</p>
+
+      <textarea>
+Dear Mutu,
+IloveyouSOmuch, I love your laugh, I love your Smile, I Love your hair,I Love How You cherish everything with me! ILOVEYOUDEAR! 
+You made my year by being my Valentine.
+I promise to Keep you Happy.
+Thank you for choosing me.
+Happy Valentine’s Week, my love 💕
+</textarea>
+
+      <p style="margin-top: 18px;">Happy Valentine’s Day, my love 💕</p>
+    </div>
+  </div>
+
+  <audio id="yaySound"><source src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg" type="audio/ogg"></audio>
+  <audio id="bgMusic" loop><source src="https://actions.google.com/sounds/v1/ambiences/romantic_piano.ogg" type="audio/ogg"></audio>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const mainContent = document.getElementById('mainContent');
+    const yesContent = document.getElementById('yesContent');
+    const yaySound = document.getElementById('yaySound');
+    const bgMusic = document.getElementById('bgMusic');
+    const countdownEl = document.getElementById('countdown');
+
+    const noMessages = [
+      "Kripa, are you suuuure? 🥺",
+      "Think again, pretty please 💭",
+      "My heart is crying 😭",
+      "Okay but I really really like you 😍",
+      "This No button feels illegal 😇",
+      "Last chance before I steal your heart 💘"
+    ];
+
+    let noCount = 0;
+
+    noBtn.addEventListener('click', () => {
+      noCount++;
+      noBtn.textContent = noMessages[noCount % noMessages.length];
+      noBtn.style.transform = `scale(${Math.max(0.6, 1 - noCount * 0.05)}) translate(${Math.random()*120-60}px, ${Math.random()*120-60}px)`;
+    });
+
+    yesBtn.addEventListener('click', () => {
+      mainContent.classList.add('hidden');
+      yesContent.classList.remove('hidden');
+      yaySound.play();
+      bgMusic.volume = 0.6; bgMusic.play();
+
+      if (navigator.vibrate) navigator.vibrate([200, 120, 200]);
+
+      for (let i = 0; i < 18; i++) {
+        const petal = document.createElement('div');
+        petal.className = 'petal';
+        petal.textContent = '🌹';
+        petal.style.left = Math.random() * 100 + '%';
+        petal.style.bottom = '-10px';
+        document.body.appendChild(petal);
+        setTimeout(() => petal.remove(), 3600);
+      }
+
+      for (let i = 0; i < 10; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.textContent = '💖 Kripa';
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.bottom = '-10px';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 3200);
+      }
+
+      setTimeout(() => alert('Now you are officially my Valentine 💕'), 600);
+    });
+      yesContent.classList.remove('hidden');
+      yaySound.play();
+      bgMusic.volume = 0.6; bgMusic.play();
+
+      for (let i = 0; i < 16; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.textContent = '💖 Kripa';
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.bottom = '-10px';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 3000);
+      }
+    });
+
+    function updateCountdown() {
+      const valentines = new Date(new Date().getFullYear(), 1, 14);
+      const now = new Date();
+      const diff = valentines - now;
+      if (diff <= 0) {
+        countdownEl.textContent = "It’s Valentine’s Day 💖";
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      countdownEl.textContent = `${days} days until Valentine’s Day 💕`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+  </script>
+</body>
+</html>
